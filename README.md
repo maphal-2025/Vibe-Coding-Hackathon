@@ -11,7 +11,8 @@ Bolt ai/ Bolt.new
 https://sb1widhxsgz-sfuw--8081--55edb8f4.local-corp.webcontainer.io
 
 # Steps to open App
--double click link
+- double click link
+- connect to project
 - click @webcontainer/api
 
 
