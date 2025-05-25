@@ -14,6 +14,8 @@ https://sb1widhxsgz-sfuw--8081--55edb8f4.local-corp.webcontainer.io
 - double click link
 - connect to project
 - click @webcontainer/api
+- Go to Console
+- Stackbliz
 
 
 The Finance Tracker app provides small business owners with a powerful yet intuitive way to monitor their financial health. The tab-based interface makes navigation straightforward with dedicated sections for dashboard, transactions, adding new entries, and financial reports.
