@@ -214,7 +214,7 @@ export default function TransactionsScreen() {
             item.type === 'income' ? styles.incomeAmount : styles.expenseAmount,
           ]}
         >
-          {item.type === 'income' ? '+' : '-'}${item.amount.toLocaleString()}
+          {item.type === 'income' ? '+' : '-'}R{item.amount.toLocaleString()}
         </Text>
       </View>
     </View>
@@ -276,13 +276,13 @@ export default function TransactionsScreen() {
           <View style={styles.summaryRow}>
             <Text style={styles.summaryLabel}>Total Income:</Text>
             <Text style={[styles.summaryAmount, styles.incomeAmount]}>
-              ${totalIncome.toLocaleString()}
+              R{totalIncome.toLocaleString()}
             </Text>
           </View>
           <View style={styles.summaryRow}>
             <Text style={styles.summaryLabel}>Total Expenses:</Text>
             <Text style={[styles.summaryAmount, styles.expenseAmount]}>
-              ${totalExpenses.toLocaleString()}
+              R{totalExpenses.toLocaleString()}
             </Text>
           </View>
           <View style={[styles.summaryRow, { borderTopWidth: 1, borderTopColor: colors.border, paddingTop: 8, marginBottom: 0 }]}>
@@ -292,7 +292,7 @@ export default function TransactionsScreen() {
               { fontSize: 18 },
               totalIncome - totalExpenses >= 0 ? styles.incomeAmount : styles.expenseAmount
             ]}>
-              ${(totalIncome - totalExpenses).toLocaleString()}
+              R{(totalIncome - totalExpenses).toLocaleString()}
             </Text>
           </View>
         </View>

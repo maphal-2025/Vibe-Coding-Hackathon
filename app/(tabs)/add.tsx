@@ -283,7 +283,7 @@ export default function AddTransactionScreen() {
           </View>
 
           <View style={styles.formSection}>
-            <Text style={styles.label}>Amount ($)</Text>
+            <Text style={styles.label}>Amount (R)</Text>
             <TextInput
               style={[styles.input, styles.amountInput]}
               placeholder="0.00"

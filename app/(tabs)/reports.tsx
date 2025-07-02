@@ -301,21 +301,21 @@ export default function ReportsScreen() {
           <View style={styles.summaryItem}>
             <Text style={styles.summaryLabel}>Revenue</Text>
             <Text style={[styles.summaryValue, styles.incomeValue]}>
-              ${currentTrend.income.toLocaleString()}
+              R{currentTrend.income.toLocaleString()}
             </Text>
             <Text style={styles.summaryChange}>{currentTrend.change}</Text>
           </View>
           <View style={styles.summaryItem}>
             <Text style={styles.summaryLabel}>Expenses</Text>
             <Text style={[styles.summaryValue, styles.expenseValue]}>
-              ${currentTrend.expenses.toLocaleString()}
+              R{currentTrend.expenses.toLocaleString()}
             </Text>
             <Text style={styles.summaryChange}>-2%</Text>
           </View>
           <View style={styles.summaryItem}>
             <Text style={styles.summaryLabel}>Profit</Text>
             <Text style={[styles.summaryValue, styles.profitValue]}>
-              ${profit.toLocaleString()}
+              R{profit.toLocaleString()}
             </Text>
             <Text style={styles.summaryChange}>{profitMargin}%</Text>
           </View>
@@ -348,7 +348,7 @@ export default function ReportsScreen() {
                   <Text style={styles.categoryPercentage}>{percentage}% of total revenue</Text>
                 </View>
                 <Text style={[styles.categoryAmount, styles.incomeValue]}>
-                  ${amount.toLocaleString()}
+                  R{amount.toLocaleString()}
                 </Text>
               </View>
             );
@@ -371,7 +371,7 @@ export default function ReportsScreen() {
                   <Text style={styles.categoryPercentage}>{percentage}% of total expenses</Text>
                 </View>
                 <Text style={[styles.categoryAmount, styles.expenseValue]}>
-                  ${amount.toLocaleString()}
+                  R{amount.toLocaleString()}
                 </Text>
               </View>
             );

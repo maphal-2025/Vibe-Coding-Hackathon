@@ -152,19 +152,19 @@ export default function DashboardScreen() {
         <View style={styles.cardsContainer}>
           <View style={styles.card}>
             <Text style={styles.cardTitle}>Total Income</Text>
-            <Text style={[styles.amount, styles.incomeAmount]}>${totalIncome.toLocaleString()}</Text>
+            <Text style={[styles.amount, styles.incomeAmount]}>R{totalIncome.toLocaleString()}</Text>
             <Text style={styles.changeText}>This month</Text>
           </View>
 
           <View style={styles.card}>
             <Text style={styles.cardTitle}>Total Expenses</Text>
-            <Text style={[styles.amount, styles.expenseAmount]}>${totalExpenses.toLocaleString()}</Text>
+            <Text style={[styles.amount, styles.expenseAmount]}>R{totalExpenses.toLocaleString()}</Text>
             <Text style={styles.changeText}>This month</Text>
           </View>
 
           <View style={styles.card}>
             <Text style={styles.cardTitle}>Net Profit</Text>
-            <Text style={[styles.amount, styles.profitAmount]}>${profit.toLocaleString()}</Text>
+            <Text style={[styles.amount, styles.profitAmount]}>R{profit.toLocaleString()}</Text>
             <Text style={styles.changeText}>
               {profit >= 0 ? 'Profitable' : 'Loss'} this month
             </Text>
@@ -186,7 +186,7 @@ export default function DashboardScreen() {
                     transaction.type === 'income' ? styles.incomeAmount : styles.expenseAmount,
                   ]}
                 >
-                  {transaction.type === 'income' ? '+' : '-'}${transaction.amount.toLocaleString()}
+                  {transaction.type === 'income' ? '+' : '-'}R{transaction.amount.toLocaleString()}
                 </Text>
               </View>
             </View>
