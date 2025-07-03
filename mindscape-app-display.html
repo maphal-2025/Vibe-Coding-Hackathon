@@ -399,6 +399,232 @@
             background: white;
             color: #667eea;
         }
+
+        .login-screen {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            height: 700px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .login-header {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+            flex-shrink: 0;
+        }
+
+        .login-content {
+            flex: 1;
+            padding: 30px 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: #333;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 12px 16px;
+            border: 2px solid #e9ecef;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: border-color 0.3s ease;
+            box-sizing: border-box;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        .login-btn {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border: none;
+            padding: 14px 24px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            width: 100%;
+            margin-bottom: 15px;
+        }
+
+        .login-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .forgot-password {
+            text-align: center;
+            color: #667eea;
+            text-decoration: none;
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+
+        .divider {
+            text-align: center;
+            margin: 20px 0;
+            position: relative;
+            color: #6c757d;
+        }
+
+        .divider::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: #e9ecef;
+            z-index: 1;
+        }
+
+        .divider span {
+            background: white;
+            padding: 0 15px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .social-login {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .social-btn {
+            flex: 1;
+            padding: 12px;
+            border: 2px solid #e9ecef;
+            border-radius: 8px;
+            background: white;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .social-btn:hover {
+            border-color: #667eea;
+            background: #f8f9ff;
+        }
+
+        .signup-link {
+            text-align: center;
+            margin-top: 20px;
+            color: #6c757d;
+        }
+
+        .signup-link a {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .user-type-selector {
+            margin-bottom: 25px;
+        }
+
+        .user-type-tabs {
+            display: flex;
+            background: #f8f9fa;
+            border-radius: 8px;
+            overflow: hidden;
+            margin-bottom: 15px;
+        }
+
+        .user-type-tab {
+            flex: 1;
+            padding: 10px;
+            text-align: center;
+            background: none;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .user-type-tab.active {
+            background: #667eea;
+            color: white;
+        }
+
+        .user-type-description {
+            font-size: 13px;
+            color: #6c757d;
+            text-align: center;
+        }
+
+        .logo-section {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .logo-section h2 {
+            margin: 10px 0 5px 0;
+            font-size: 2rem;
+        }
+
+        .demo-mode-banner {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 8px;
+            padding: 10px;
+            margin-bottom: 20px;
+            text-align: center;
+            font-size: 14px;
+            color: #856404;
+        }
+
+        .login-features {
+            background: #f8f9ff;
+            border-radius: 8px;
+            padding: 15px;
+            margin-top: 20px;
+        }
+
+        .feature-list {
+            list-style: none;
+            padding: 0;
+            margin: 10px 0 0 0;
+        }
+
+        .feature-list li {
+            padding: 5px 0;
+            font-size: 14px;
+            color: #495057;
+        }
+
+        .feature-list li::before {
+            content: "✓";
+            color: #28a745;
+            font-weight: bold;
+            margin-right: 8px;
+        }
     </style>
 </head>
 <body>
@@ -423,7 +649,8 @@
             </div>
 
             <div class="screen-selector">
-                <button class="screen-btn active" onclick="showScreen('dashboard')">Dashboard</button>
+                <button class="screen-btn active" onclick="showScreen('login')">Login</button>
+                <button class="screen-btn" onclick="showScreen('dashboard')">Dashboard</button>
                 <button class="screen-btn" onclick="showScreen('learning')">Learning</button>
                 <button class="screen-btn" onclick="showScreen('client-hub')">Client Hub</button>
                 <button class="screen-btn" onclick="showScreen('messaging')">Messaging</button>
@@ -433,14 +660,85 @@
 
         <div class="app-showcase">
             <div class="phone-mockup">
-                <div class="phone-screen">
+                <div class="phone-screen" id="phone-container">
                     <div class="status-bar">
                         <span>9:41 AM</span>
                         <span>●●●●● 100%</span>
                     </div>
                     
+                    <!-- Login Screen -->
+                    <div class="demo-screen active" id="login">
+                        <div class="login-screen">
+                            <div class="login-header">
+                                <div class="logo-section">
+                                    <h2>🧠 MindScape</h2>
+                                    <p>Mental Wellness Microlearning</p>
+                                </div>
+                            </div>
+                            <div class="login-content">
+                                <div class="demo-mode-banner">
+                                    🚀 Demo Mode - Click "Sign In" to explore the app
+                                </div>
+                                
+                                <div class="user-type-selector">
+                                    <div class="user-type-tabs">
+                                        <button class="user-type-tab active" onclick="selectUserType('professional')">Professional</button>
+                                        <button class="user-type-tab" onclick="selectUserType('student')">Student</button>
+                                        <button class="user-type-tab" onclick="selectUserType('client')">Client</button>
+                                    </div>
+                                    <div class="user-type-description" id="user-type-desc">
+                                        For licensed mental health professionals and counselors
+                                    </div>
+                                </div>
+
+                                <form onsubmit="handleLogin(event)">
+                                    <div class="form-group">
+                                        <label class="form-label" for="email">Email Address</label>
+                                        <input type="email" id="email" class="form-input" placeholder="dr.smith@example.com" required>
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label class="form-label" for="password">Password</label>
+                                        <input type="password" id="password" class="form-input" placeholder="Enter your password" required>
+                                    </div>
+                                    
+                                    <button type="submit" class="login-btn">Sign In</button>
+                                </form>
+                                
+                                <a href="#" class="forgot-password">Forgot your password?</a>
+                                
+                                <div class="divider">
+                                    <span>or continue with</span>
+                                </div>
+                                
+                                <div class="social-login">
+                                    <button class="social-btn" onclick="socialLogin('google')">
+                                        🔍 Google
+                                    </button>
+                                    <button class="social-btn" onclick="socialLogin('microsoft')">
+                                        🔵 Microsoft
+                                    </button>
+                                </div>
+                                
+                                <div class="login-features">
+                                    <strong>Why choose MindScape?</strong>
+                                    <ul class="feature-list">
+                                        <li>HIPAA-compliant platform</li>
+                                        <li>Evidence-based microlearning</li>
+                                        <li>CEU credit tracking</li>
+                                        <li>AI-powered insights</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="signup-link">
+                                    New to MindScape? <a href="#" onclick="showSignup()">Create account</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
                     <!-- Dashboard Screen -->
-                    <div class="demo-screen active" id="dashboard">
+                    <div class="demo-screen" id="dashboard">
                         <div class="app-header">
                             <h3>Welcome, Dr. Smith</h3>
                             <p>Psychology Professional Dashboard</p>
@@ -791,6 +1089,69 @@
                 }
             });
         });
+
+        // Login functions
+        function handleLogin(event) {
+            event.preventDefault();
+            
+            // Show loading state
+            const loginBtn = event.target.querySelector('.login-btn');
+            const originalText = loginBtn.textContent;
+            loginBtn.textContent = 'Signing in...';
+            loginBtn.disabled = true;
+            
+            // Simulate login process
+            setTimeout(() => {
+                // Hide login screen and show dashboard
+                showScreen('dashboard');
+                
+                // Reset button
+                loginBtn.textContent = originalText;
+                loginBtn.disabled = false;
+                
+                // Show welcome message
+                setTimeout(() => {
+                    alert('Welcome to MindScape! You are now logged in as Dr. Smith.');
+                }, 500);
+            }, 1500);
+        }
+
+        function selectUserType(type) {
+            // Remove active class from all tabs
+            document.querySelectorAll('.user-type-tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            // Add active class to clicked tab
+            event.target.classList.add('active');
+            
+            // Update description based on user type
+            const descriptions = {
+                'professional': 'For licensed mental health professionals and counselors',
+                'student': 'For psychology students and trainees',
+                'client': 'For individuals receiving mental health support'
+            };
+            
+            document.getElementById('user-type-desc').textContent = descriptions[type];
+            
+            // Update placeholder email based on user type
+            const emailInput = document.getElementById('email');
+            const placeholders = {
+                'professional': 'dr.smith@example.com',
+                'student': 'student@university.edu',
+                'client': 'client@example.com'
+            };
+            
+            emailInput.placeholder = placeholders[type];
+        }
+
+        function socialLogin(provider) {
+            alert(`Social login with ${provider} would redirect to ${provider} authentication in a real app.`);
+        }
+
+        function showSignup() {
+            alert('In a real app, this would navigate to the registration page.');
+        }
     </script>
 </body>
 </html>
