@@ -619,12 +619,208 @@
             color: #495057;
         }
 
-        .feature-list li::before {
-            content: "✓";
-            color: #28a745;
-            font-weight: bold;
-            margin-right: 8px;
-        }
+                 .feature-list li::before {
+             content: "✓";
+             color: #28a745;
+             font-weight: bold;
+             margin-right: 8px;
+         }
+
+         .offerings-screen {
+             background: white;
+             border-radius: 20px;
+             overflow: hidden;
+             height: 700px;
+             position: relative;
+         }
+
+         .offerings-header {
+             background: linear-gradient(135deg, #667eea, #764ba2);
+             color: white;
+             padding: 20px;
+             text-align: center;
+         }
+
+         .offerings-content {
+             padding: 20px;
+             height: calc(100% - 80px);
+             overflow-y: auto;
+         }
+
+         .service-category {
+             margin-bottom: 25px;
+             border-radius: 12px;
+             overflow: hidden;
+             box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+         }
+
+         .category-header {
+             padding: 15px 20px;
+             font-weight: bold;
+             color: white;
+             cursor: pointer;
+             transition: all 0.3s ease;
+             display: flex;
+             justify-content: space-between;
+             align-items: center;
+         }
+
+         .category-header:hover {
+             opacity: 0.9;
+         }
+
+         .category-header.professional {
+             background: linear-gradient(135deg, #667eea, #764ba2);
+         }
+
+         .category-header.student {
+             background: linear-gradient(135deg, #28a745, #20c997);
+         }
+
+         .category-header.client {
+             background: linear-gradient(135deg, #fd7e14, #e83e8c);
+         }
+
+         .category-header.enterprise {
+             background: linear-gradient(135deg, #6f42c1, #e83e8c);
+         }
+
+         .category-content {
+             background: white;
+             padding: 20px;
+             border-left: 4px solid #667eea;
+         }
+
+         .service-item {
+             margin-bottom: 15px;
+             padding: 12px;
+             background: #f8f9ff;
+             border-radius: 8px;
+             border-left: 3px solid #667eea;
+         }
+
+         .service-title {
+             font-weight: 600;
+             color: #333;
+             margin-bottom: 5px;
+             display: flex;
+             align-items: center;
+             gap: 8px;
+         }
+
+         .service-description {
+             font-size: 14px;
+             color: #6c757d;
+             margin-bottom: 8px;
+         }
+
+         .service-benefits {
+             display: flex;
+             flex-wrap: wrap;
+             gap: 5px;
+         }
+
+         .benefit-tag {
+             background: #e7f3ff;
+             color: #0066cc;
+             padding: 3px 8px;
+             border-radius: 12px;
+             font-size: 11px;
+             font-weight: 500;
+         }
+
+         .value-proposition {
+             background: linear-gradient(135deg, #f8f9ff, #e7f3ff);
+             border-radius: 12px;
+             padding: 20px;
+             margin: 20px 0;
+             border: 2px solid #667eea;
+         }
+
+         .stats-grid {
+             display: grid;
+             grid-template-columns: 1fr 1fr;
+             gap: 10px;
+             margin: 15px 0;
+         }
+
+         .stat-item {
+             background: white;
+             padding: 10px;
+             border-radius: 8px;
+             text-align: center;
+             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+         }
+
+         .stat-number {
+             font-size: 1.5rem;
+             font-weight: bold;
+             color: #667eea;
+         }
+
+         .stat-label {
+             font-size: 0.8rem;
+             color: #6c757d;
+         }
+
+         .cta-section {
+             background: linear-gradient(135deg, #667eea, #764ba2);
+             color: white;
+             border-radius: 12px;
+             padding: 20px;
+             text-align: center;
+             margin-top: 20px;
+         }
+
+         .cta-buttons {
+             display: flex;
+             gap: 10px;
+             margin-top: 15px;
+         }
+
+         .cta-btn {
+             flex: 1;
+             background: white;
+             color: #667eea;
+             border: none;
+             padding: 10px;
+             border-radius: 20px;
+             cursor: pointer;
+             font-weight: 600;
+             font-size: 0.85rem;
+             transition: all 0.3s ease;
+         }
+
+         .cta-btn:hover {
+             transform: translateY(-2px);
+             box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+         }
+
+         .pricing-preview {
+             background: #fff;
+             border-radius: 8px;
+             padding: 15px;
+             margin: 10px 0;
+             border: 1px solid #e9ecef;
+         }
+
+         .price-highlight {
+             font-size: 1.5rem;
+             font-weight: bold;
+             color: #667eea;
+         }
+
+         .toggle-arrow {
+             transition: transform 0.3s ease;
+         }
+
+         .toggle-arrow.expanded {
+             transform: rotate(180deg);
+         }
+
+         .category-content.collapsed {
+             display: none;
+         }
     </style>
 </head>
 <body>
@@ -650,6 +846,7 @@
 
             <div class="screen-selector">
                 <button class="screen-btn active" onclick="showScreen('login')">Login</button>
+                <button class="screen-btn" onclick="showScreen('what-we-offer')">What We Offer</button>
                 <button class="screen-btn" onclick="showScreen('dashboard')">Dashboard</button>
                 <button class="screen-btn" onclick="showScreen('learning')">Learning</button>
                 <button class="screen-btn" onclick="showScreen('client-hub')">Client Hub</button>
@@ -732,6 +929,244 @@
                                 
                                 <div class="signup-link">
                                     New to MindScape? <a href="#" onclick="showSignup()">Create account</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- What We Offer Screen -->
+                    <div class="demo-screen" id="what-we-offer">
+                        <div class="offerings-screen">
+                            <div class="offerings-header">
+                                <h3>🎯 What We Offer</h3>
+                                <p>Comprehensive Mental Wellness Solutions</p>
+                            </div>
+                            <div class="offerings-content">
+                                
+                                <div class="value-proposition">
+                                    <h4>🧠 Transform Mental Health Education</h4>
+                                    <p style="font-size: 14px; margin: 10px 0;">Evidence-based microlearning platform designed specifically for mental health professionals and their clients.</p>
+                                    <div class="stats-grid">
+                                        <div class="stat-item">
+                                            <div class="stat-number">$26.2B</div>
+                                            <div class="stat-label">Market Size 2033</div>
+                                        </div>
+                                        <div class="stat-item">
+                                            <div class="stat-number">280M</div>
+                                            <div class="stat-label">People with Depression</div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Professional Services -->
+                                <div class="service-category">
+                                    <div class="category-header professional" onclick="toggleCategory('professional')">
+                                        <span>👨‍⚕️ For Mental Health Professionals</span>
+                                        <span class="toggle-arrow">▼</span>
+                                    </div>
+                                    <div class="category-content" id="professional-content">
+                                        <div class="service-item">
+                                            <div class="service-title">
+                                                📚 Evidence-Based Microlearning
+                                            </div>
+                                            <div class="service-description">
+                                                3-8 minute modules covering CBT, mindfulness, trauma-informed care, and latest therapeutic techniques
+                                            </div>
+                                            <div class="service-benefits">
+                                                <span class="benefit-tag">CEU Credits</span>
+                                                <span class="benefit-tag">Research-Backed</span>
+                                                <span class="benefit-tag">Self-Paced</span>
+                                            </div>
+                                        </div>
+
+                                        <div class="service-item">
+                                            <div class="service-title">
+                                                🤖 AI-Powered Personalization
+                                            </div>
+                                            <div class="service-description">
+                                                Intelligent recommendations based on your practice area, client needs, and learning preferences
+                                            </div>
+                                            <div class="service-benefits">
+                                                <span class="benefit-tag">Smart Insights</span>
+                                                <span class="benefit-tag">Adaptive Learning</span>
+                                                <span class="benefit-tag">Progress Analytics</span>
+                                            </div>
+                                        </div>
+
+                                        <div class="service-item">
+                                            <div class="service-title">
+                                                📊 Professional Development Tracking
+                                            </div>
+                                            <div class="service-description">
+                                                Monitor CEU credits, competency growth, and professional milestones
+                                            </div>
+                                            <div class="service-benefits">
+                                                <span class="benefit-tag">CEU Management</span>
+                                                <span class="benefit-tag">Compliance Ready</span>
+                                                <span class="benefit-tag">Portfolio Building</span>
+                                            </div>
+                                        </div>
+
+                                        <div class="pricing-preview">
+                                            <div style="display: flex; justify-content: space-between; align-items: center;">
+                                                <div>
+                                                    <strong>Professional Plan</strong>
+                                                    <div style="font-size: 12px; color: #6c757d;">Full access + CEU tracking</div>
+                                                </div>
+                                                <div class="price-highlight">$79/mo</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Student Services -->
+                                <div class="service-category">
+                                    <div class="category-header student" onclick="toggleCategory('student')">
+                                        <span>🎓 For Psychology Students</span>
+                                        <span class="toggle-arrow">▼</span>
+                                    </div>
+                                    <div class="category-content collapsed" id="student-content">
+                                        <div class="service-item">
+                                            <div class="service-title">
+                                                📖 Supplemental Learning Modules
+                                            </div>
+                                            <div class="service-description">
+                                                Reinforce classroom learning with practical, real-world applications
+                                            </div>
+                                            <div class="service-benefits">
+                                                <span class="benefit-tag">Exam Prep</span>
+                                                <span class="benefit-tag">Case Studies</span>
+                                                <span class="benefit-tag">Peer Learning</span>
+                                            </div>
+                                        </div>
+
+                                        <div class="service-item">
+                                            <div class="service-title">
+                                                🏆 Competency Assessment
+                                            </div>
+                                            <div class="service-description">
+                                                Track progress toward professional competencies and licensing requirements
+                                            </div>
+                                            <div class="service-benefits">
+                                                <span class="benefit-tag">Self-Assessment</span>
+                                                <span class="benefit-tag">Progress Tracking</span>
+                                                <span class="benefit-tag">Feedback</span>
+                                            </div>
+                                        </div>
+
+                                        <div class="pricing-preview">
+                                            <div style="display: flex; justify-content: space-between; align-items: center;">
+                                                <div>
+                                                    <strong>Student Plan</strong>
+                                                    <div style="font-size: 12px; color: #6c757d;">Academic pricing available</div>
+                                                </div>
+                                                <div class="price-highlight">$19/mo</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Client Services -->
+                                <div class="service-category">
+                                    <div class="category-header client" onclick="toggleCategory('client')">
+                                        <span>👥 For Therapy Clients</span>
+                                        <span class="toggle-arrow">▼</span>
+                                    </div>
+                                    <div class="category-content collapsed" id="client-content">
+                                        <div class="service-item">
+                                            <div class="service-title">
+                                                🌱 Guided Self-Help Resources
+                                            </div>
+                                            <div class="service-description">
+                                                Therapist-curated exercises, coping strategies, and wellness activities
+                                            </div>
+                                            <div class="service-benefits">
+                                                <span class="benefit-tag">Therapist Approved</span>
+                                                <span class="benefit-tag">Privacy Focused</span>
+                                                <span class="benefit-tag">Progress Sharing</span>
+                                            </div>
+                                        </div>
+
+                                        <div class="service-item">
+                                            <div class="service-title">
+                                                📱 Between-Session Support
+                                            </div>
+                                            <div class="service-description">
+                                                Maintain therapeutic momentum with daily practices and check-ins
+                                            </div>
+                                            <div class="service-benefits">
+                                                <span class="benefit-tag">Daily Practices</span>
+                                                <span class="benefit-tag">Mood Tracking</span>
+                                                <span class="benefit-tag">Crisis Resources</span>
+                                            </div>
+                                        </div>
+
+                                        <div class="pricing-preview">
+                                            <div style="display: flex; justify-content: space-between; align-items: center;">
+                                                <div>
+                                                    <strong>Client Access</strong>
+                                                    <div style="font-size: 12px; color: #6c757d;">Often covered by therapist</div>
+                                                </div>
+                                                <div class="price-highlight">$15/mo</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Enterprise Services -->
+                                <div class="service-category">
+                                    <div class="category-header enterprise" onclick="toggleCategory('enterprise')">
+                                        <span>🏢 For Organizations</span>
+                                        <span class="toggle-arrow">▼</span>
+                                    </div>
+                                    <div class="category-content collapsed" id="enterprise-content">
+                                        <div class="service-item">
+                                            <div class="service-title">
+                                                🎯 Corporate Wellness Programs
+                                            </div>
+                                            <div class="service-description">
+                                                Employee mental health support with administrator dashboards and reporting
+                                            </div>
+                                            <div class="service-benefits">
+                                                <span class="benefit-tag">Admin Dashboard</span>
+                                                <span class="benefit-tag">Bulk Licensing</span>
+                                                <span class="benefit-tag">Usage Analytics</span>
+                                            </div>
+                                        </div>
+
+                                        <div class="service-item">
+                                            <div class="service-title">
+                                                🏫 Educational Institution Partnerships
+                                            </div>
+                                            <div class="service-description">
+                                                Campus-wide mental health support for students and staff
+                                            </div>
+                                            <div class="service-benefits">
+                                                <span class="benefit-tag">Campus Integration</span>
+                                                <span class="benefit-tag">Student Pricing</span>
+                                                <span class="benefit-tag">Custom Content</span>
+                                            </div>
+                                        </div>
+
+                                        <div class="pricing-preview">
+                                            <div style="display: flex; justify-content: space-between; align-items: center;">
+                                                <div>
+                                                    <strong>Enterprise Plans</strong>
+                                                    <div style="font-size: 12px; color: #6c757d;">Custom pricing available</div>
+                                                </div>
+                                                <div class="price-highlight">Contact Us</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="cta-section">
+                                    <h4>🚀 Ready to Transform Mental Health Education?</h4>
+                                    <p style="font-size: 14px; margin: 10px 0;">Join thousands of professionals already using MindScape</p>
+                                    <div class="cta-buttons">
+                                        <button class="cta-btn" onclick="startFreeTrial()">Start Free Trial</button>
+                                        <button class="cta-btn" onclick="scheduleDemo()">Schedule Demo</button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -1151,6 +1586,28 @@
 
         function showSignup() {
             alert('In a real app, this would navigate to the registration page.');
+        }
+
+        // What We Offer page functions
+        function toggleCategory(categoryId) {
+            const content = document.getElementById(categoryId + '-content');
+            const arrow = event.target.querySelector('.toggle-arrow');
+            
+            if (content.classList.contains('collapsed')) {
+                content.classList.remove('collapsed');
+                arrow.classList.add('expanded');
+            } else {
+                content.classList.add('collapsed');
+                arrow.classList.remove('expanded');
+            }
+        }
+
+        function startFreeTrial() {
+            alert('🚀 Starting your free trial! In a real app, this would redirect to the trial signup process.');
+        }
+
+        function scheduleDemo() {
+            alert('📅 Scheduling a demo! In a real app, this would open a calendar booking system.');
         }
     </script>
 </body>
