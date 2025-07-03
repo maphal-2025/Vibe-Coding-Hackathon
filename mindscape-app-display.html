@@ -1,0 +1,796 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MindScape - Mental Wellness Microlearning Platform</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            padding: 40px 0;
+            color: white;
+        }
+
+        .header h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .header .tagline {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-bottom: 30px;
+        }
+
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 20px;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat .number {
+            font-size: 2rem;
+            font-weight: bold;
+            display: block;
+        }
+
+        .stat .label {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        .app-showcase {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin: 60px 0;
+        }
+
+        .phone-mockup {
+            background: #1a1a1a;
+            border-radius: 25px;
+            padding: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+            position: relative;
+            max-width: 350px;
+            margin: 0 auto;
+        }
+
+        .phone-screen {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            height: 700px;
+            position: relative;
+        }
+
+        .status-bar {
+            background: #f8f9fa;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .app-header {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .app-content {
+            padding: 20px;
+            height: calc(100% - 140px);
+            overflow-y: auto;
+        }
+
+        .feature-card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            margin: 20px 0;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border-left: 5px solid #667eea;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .microlearning-card {
+            background: #f8f9ff;
+            border-radius: 12px;
+            padding: 15px;
+            margin: 10px 0;
+            border-left: 4px solid #667eea;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .microlearning-card:hover {
+            transform: translateX(5px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.2);
+        }
+
+        .progress-bar {
+            background: #e9ecef;
+            border-radius: 10px;
+            height: 8px;
+            margin: 10px 0;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            height: 100%;
+            border-radius: 10px;
+            transition: width 0.3s ease;
+        }
+
+        .nav-tabs {
+            display: flex;
+            background: #f8f9fa;
+            border-radius: 8px;
+            margin: 20px 0;
+            overflow: hidden;
+        }
+
+        .nav-tab {
+            flex: 1;
+            padding: 12px;
+            text-align: center;
+            background: none;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .nav-tab.active {
+            background: #667eea;
+            color: white;
+        }
+
+        .tab-content {
+            min-height: 300px;
+        }
+
+        .cbt-module {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 10px 0;
+        }
+
+        .mindfulness-exercise {
+            background: #d1ecf1;
+            border: 1px solid #bee5eb;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 10px 0;
+        }
+
+        .trauma-care-module {
+            background: #f8d7da;
+            border: 1px solid #f5c6cb;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 10px 0;
+        }
+
+        .ai-insights {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border-radius: 12px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .messaging-interface {
+            background: #f8f9fa;
+            border-radius: 12px;
+            padding: 15px;
+            margin: 10px 0;
+            max-height: 200px;
+            overflow-y: auto;
+        }
+
+        .message {
+            background: white;
+            border-radius: 18px;
+            padding: 10px 15px;
+            margin: 5px 0;
+            max-width: 80%;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .message.therapist {
+            background: #667eea;
+            color: white;
+            margin-left: auto;
+        }
+
+        .progress-dashboard {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .metric-card {
+            background: white;
+            border-radius: 8px;
+            padding: 15px;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .metric-value {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #667eea;
+        }
+
+        .compliance-badge {
+            display: inline-block;
+            background: #28a745;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            margin: 5px;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 40px 0;
+        }
+
+        .pricing-card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px 20px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .pricing-card.featured {
+            border: 3px solid #667eea;
+            transform: scale(1.05);
+        }
+
+        .pricing-card.featured::before {
+            content: "Most Popular";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: #667eea;
+            color: white;
+            padding: 5px;
+            font-size: 0.8rem;
+        }
+
+        .price {
+            font-size: 3rem;
+            font-weight: bold;
+            color: #667eea;
+        }
+
+        .btn {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .tech-stack {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            margin: 40px 0;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .tech-item {
+            text-align: center;
+            padding: 20px;
+            border-radius: 10px;
+            background: #f8f9fa;
+        }
+
+        @media (max-width: 768px) {
+            .app-showcase {
+                grid-template-columns: 1fr;
+            }
+            
+            .stats {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .progress-dashboard {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .demo-screen {
+            display: none;
+        }
+
+        .demo-screen.active {
+            display: block;
+        }
+
+        .screen-selector {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin: 20px 0;
+        }
+
+        .screen-btn {
+            background: rgba(255,255,255,0.2);
+            color: white;
+            border: 1px solid rgba(255,255,255,0.3);
+            padding: 8px 16px;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .screen-btn.active {
+            background: white;
+            color: #667eea;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🧠 MindScape</h1>
+            <p class="tagline">Microlearning Platform for Mental Wellness Professionals</p>
+            
+            <div class="stats">
+                <div class="stat">
+                    <span class="number">$26.2B</span>
+                    <span class="label">Market Size by 2033</span>
+                </div>
+                <div class="stat">
+                    <span class="number">15.3%</span>
+                    <span class="label">CAGR Growth</span>
+                </div>
+                <div class="stat">
+                    <span class="number">280M</span>
+                    <span class="label">People with Depression</span>
+                </div>
+            </div>
+
+            <div class="screen-selector">
+                <button class="screen-btn active" onclick="showScreen('dashboard')">Dashboard</button>
+                <button class="screen-btn" onclick="showScreen('learning')">Learning</button>
+                <button class="screen-btn" onclick="showScreen('client-hub')">Client Hub</button>
+                <button class="screen-btn" onclick="showScreen('messaging')">Messaging</button>
+                <button class="screen-btn" onclick="showScreen('analytics')">Analytics</button>
+            </div>
+        </div>
+
+        <div class="app-showcase">
+            <div class="phone-mockup">
+                <div class="phone-screen">
+                    <div class="status-bar">
+                        <span>9:41 AM</span>
+                        <span>●●●●● 100%</span>
+                    </div>
+                    
+                    <!-- Dashboard Screen -->
+                    <div class="demo-screen active" id="dashboard">
+                        <div class="app-header">
+                            <h3>Welcome, Dr. Smith</h3>
+                            <p>Psychology Professional Dashboard</p>
+                        </div>
+                        <div class="app-content">
+                            <div class="progress-dashboard">
+                                <div class="metric-card">
+                                    <div class="metric-value">7</div>
+                                    <div>Modules Completed</div>
+                                </div>
+                                <div class="metric-card">
+                                    <div class="metric-value">24</div>
+                                    <div>CEU Credits</div>
+                                </div>
+                            </div>
+                            
+                            <h4>Today's Recommendations</h4>
+                            <div class="microlearning-card">
+                                <strong>📚 CBT Techniques for Anxiety</strong>
+                                <p>5-minute module • Cognitive Behavioral Therapy</p>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 0%"></div>
+                                </div>
+                            </div>
+                            
+                            <div class="microlearning-card">
+                                <strong>🧘 Mindfulness-Based Interventions</strong>
+                                <p>3-minute guided practice</p>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 100%"></div>
+                                </div>
+                            </div>
+
+                            <div class="ai-insights">
+                                <h4>🤖 AI Insights</h4>
+                                <p>"Based on your recent client sessions, consider reviewing trauma-informed care modules."</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Learning Screen -->
+                    <div class="demo-screen" id="learning">
+                        <div class="app-header">
+                            <h3>📖 Learning Library</h3>
+                            <p>Evidence-based microlearning</p>
+                        </div>
+                        <div class="app-content">
+                            <div class="nav-tabs">
+                                <button class="nav-tab active">CBT</button>
+                                <button class="nav-tab">Mindfulness</button>
+                                <button class="nav-tab">Trauma</button>
+                            </div>
+                            
+                            <div class="cbt-module">
+                                <strong>Cognitive Restructuring</strong>
+                                <p>Learn to help clients identify and challenge negative thought patterns</p>
+                                <small>⏱️ 4 minutes • 🏆 2 CEU credits</small>
+                            </div>
+                            
+                            <div class="cbt-module">
+                                <strong>Behavioral Activation</strong>
+                                <p>Techniques for increasing positive activities and behaviors</p>
+                                <small>⏱️ 6 minutes • 🏆 3 CEU credits</small>
+                            </div>
+                            
+                            <div class="cbt-module">
+                                <strong>Exposure Therapy Basics</strong>
+                                <p>Safe and effective exposure techniques for anxiety disorders</p>
+                                <small>⏱️ 8 minutes • 🏆 4 CEU credits</small>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Client Hub Screen -->
+                    <div class="demo-screen" id="client-hub">
+                        <div class="app-header">
+                            <h3>👥 Client Learning Hub</h3>
+                            <p>Share resources with clients</p>
+                        </div>
+                        <div class="app-content">
+                            <h4>Recommended for Clients</h4>
+                            
+                            <div class="mindfulness-exercise">
+                                <strong>🌬️ Breathing Exercise</strong>
+                                <p>5-minute guided breathing for anxiety relief</p>
+                                <button class="btn" style="padding: 5px 10px; font-size: 0.8rem;">Share with Client</button>
+                            </div>
+                            
+                            <div class="mindfulness-exercise">
+                                <strong>📱 Mood Tracking Guide</strong>
+                                <p>How to effectively track daily mood patterns</p>
+                                <button class="btn" style="padding: 5px 10px; font-size: 0.8rem;">Share with Client</button>
+                            </div>
+                            
+                            <div class="mindfulness-exercise">
+                                <strong>🛠️ Coping Skills Toolkit</strong>
+                                <p>Emergency coping strategies for difficult moments</p>
+                                <button class="btn" style="padding: 5px 10px; font-size: 0.8rem;">Share with Client</button>
+                            </div>
+
+                            <h4>Client Progress</h4>
+                            <p><strong>Sarah M.</strong> - Completed 3/5 mindfulness exercises</p>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 60%"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Messaging Screen -->
+                    <div class="demo-screen" id="messaging">
+                        <div class="app-header">
+                            <h3>💬 Secure Messaging</h3>
+                            <p>HIPAA-compliant communication</p>
+                        </div>
+                        <div class="app-content">
+                            <div class="messaging-interface">
+                                <div class="message">
+                                    Dr. Smith, I've been practicing the breathing exercises you shared.
+                                </div>
+                                <div class="message therapist">
+                                    That's wonderful! How have they been helping with your anxiety?
+                                </div>
+                                <div class="message">
+                                    Much better. I used the 4-7-8 technique during my presentation yesterday.
+                                </div>
+                                <div class="message therapist">
+                                    Excellent progress! Let's explore more coping strategies in our next session.
+                                </div>
+                            </div>
+                            
+                            <div class="compliance-badge">🔒 HIPAA Compliant</div>
+                            <div class="compliance-badge">🔐 End-to-End Encrypted</div>
+                            
+                            <h4>Quick Responses</h4>
+                            <button class="btn" style="margin: 5px; padding: 8px 12px; font-size: 0.8rem;">Schedule Session</button>
+                            <button class="btn" style="margin: 5px; padding: 8px 12px; font-size: 0.8rem;">Share Resource</button>
+                        </div>
+                    </div>
+
+                    <!-- Analytics Screen -->
+                    <div class="demo-screen" id="analytics">
+                        <div class="app-header">
+                            <h3>📊 Progress Analytics</h3>
+                            <p>Track learning and client outcomes</p>
+                        </div>
+                        <div class="app-content">
+                            <h4>Your Learning Progress</h4>
+                            <div class="progress-dashboard">
+                                <div class="metric-card">
+                                    <div class="metric-value">87%</div>
+                                    <div>CBT Mastery</div>
+                                </div>
+                                <div class="metric-card">
+                                    <div class="metric-value">12h</div>
+                                    <div>This Month</div>
+                                </div>
+                            </div>
+                            
+                            <h4>Client Engagement</h4>
+                            <div class="microlearning-card">
+                                <strong>📈 Engagement Rate: 78%</strong>
+                                <p>Clients are actively using shared resources</p>
+                            </div>
+                            
+                            <div class="microlearning-card">
+                                <strong>🎯 Session Effectiveness</strong>
+                                <p>92% report improved coping skills</p>
+                            </div>
+
+                            <div class="ai-insights">
+                                <h4>🤖 AI Recommendations</h4>
+                                <p>"Consider trauma-informed approaches for 3 current clients based on session patterns."</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <div class="feature-card">
+                    <h3>🎯 Target Users</h3>
+                    <ul style="margin: 15px 0;">
+                        <li><strong>Clinical Psychologists</strong> - Evidence-based practice updates</li>
+                        <li><strong>Counseling Psychology</strong> - Therapeutic technique training</li>
+                        <li><strong>Psychology Students</strong> - Supplemental learning materials</li>
+                        <li><strong>Therapy Clients</strong> - Guided self-help resources</li>
+                        <li><strong>Corporate Wellness</strong> - Employee mental health support</li>
+                    </ul>
+                </div>
+
+                <div class="feature-card">
+                    <h3>🚀 Core Features</h3>
+                    <ul style="margin: 15px 0;">
+                        <li>📚 <strong>Personalized Microlearning</strong> - AI-driven content recommendations</li>
+                        <li>👥 <strong>Client Learning Hub</strong> - Share resources with therapy clients</li>
+                        <li>📈 <strong>Progress Tracking</strong> - Monitor learning and client outcomes</li>
+                        <li>💬 <strong>Secure Messaging</strong> - HIPAA-compliant communication</li>
+                        <li>📖 <strong>Content Library</strong> - CBT, mindfulness, trauma care modules</li>
+                        <li>📱 <strong>Offline Access</strong> - Learn anywhere, anytime</li>
+                    </ul>
+                </div>
+
+                <div class="feature-card">
+                    <h3>🔒 Compliance & Security</h3>
+                    <div class="compliance-badge">HIPAA Compliant</div>
+                    <div class="compliance-badge">GDPR Ready</div>
+                    <div class="compliance-badge">SOC 2 Type II</div>
+                    <div class="compliance-badge">End-to-End Encryption</div>
+                    <p style="margin-top: 15px;">Enterprise-grade security designed specifically for mental health professionals handling sensitive patient information.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="tech-stack">
+            <h3 style="text-align: center; margin-bottom: 30px;">🛠️ Technology Stack</h3>
+            <div class="tech-grid">
+                <div class="tech-item">
+                    <h4>Frontend</h4>
+                    <p>Flutter / React Native</p>
+                    <small>Cross-platform mobile apps</small>
+                </div>
+                <div class="tech-item">
+                    <h4>Backend</h4>
+                    <p>Firebase / AWS Amplify</p>
+                    <small>Scalable cloud infrastructure</small>
+                </div>
+                <div class="tech-item">
+                    <h4>AI/ML</h4>
+                    <p>OpenAI / Azure Cognitive</p>
+                    <small>Personalization & insights</small>
+                </div>
+                <div class="tech-item">
+                    <h4>Security</h4>
+                    <p>HIPAA/GDPR Compliant</p>
+                    <small>Healthcare-grade encryption</small>
+                </div>
+            </div>
+        </div>
+
+        <div class="pricing-grid">
+            <div class="pricing-card">
+                <h4>Individual Professional</h4>
+                <div class="price">$29<span style="font-size: 1rem;">/month</span></div>
+                <ul style="text-align: left; margin: 20px 0;">
+                    <li>✅ Unlimited microlearning modules</li>
+                    <li>✅ Basic progress tracking</li>
+                    <li>✅ Client resource sharing</li>
+                    <li>✅ Standard support</li>
+                </ul>
+                <button class="btn">Start Free Trial</button>
+            </div>
+
+            <div class="pricing-card featured">
+                <h4>Professional Plus</h4>
+                <div class="price">$79<span style="font-size: 1rem;">/month</span></div>
+                <ul style="text-align: left; margin: 20px 0;">
+                    <li>✅ Everything in Individual</li>
+                    <li>✅ AI-powered insights</li>
+                    <li>✅ Advanced analytics</li>
+                    <li>✅ Secure messaging</li>
+                    <li>✅ CEU credit tracking</li>
+                    <li>✅ Priority support</li>
+                </ul>
+                <button class="btn">Start Free Trial</button>
+            </div>
+
+            <div class="pricing-card">
+                <h4>Institution License</h4>
+                <div class="price">$299<span style="font-size: 1rem;">/month</span></div>
+                <ul style="text-align: left; margin: 20px 0;">
+                    <li>✅ Up to 50 professionals</li>
+                    <li>✅ Admin dashboard</li>
+                    <li>✅ Custom branding</li>
+                    <li>✅ Compliance reporting</li>
+                    <li>✅ Dedicated support</li>
+                </ul>
+                <button class="btn">Contact Sales</button>
+            </div>
+        </div>
+
+        <div class="feature-grid">
+            <div class="feature-card">
+                <h3>📊 Market Opportunity</h3>
+                <p><strong>$26.2 billion</strong> mental health apps market by 2033</p>
+                <p><strong>15.3% CAGR</strong> growth rate</p>
+                <p><strong>Underserved niche:</strong> Professional psychology education vs. general wellness apps</p>
+            </div>
+
+            <div class="feature-card">
+                <h3>🎯 Competitive Advantage</h3>
+                <p><strong>Evidence-based content:</strong> Clinically validated microlearning modules</p>
+                <p><strong>Professional focus:</strong> Unlike general wellness apps, designed specifically for psychology professionals</p>
+                <p><strong>Dual audience:</strong> Serves both professionals and their clients</p>
+            </div>
+
+            <div class="feature-card">
+                <h3>🚀 Implementation Roadmap</h3>
+                <p><strong>Phase 1:</strong> MVP with core microlearning features</p>
+                <p><strong>Phase 2:</strong> Client hub and secure messaging</p>
+                <p><strong>Phase 3:</strong> AI personalization and advanced analytics</p>
+                <p><strong>Phase 4:</strong> Enterprise features and institutional partnerships</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showScreen(screenId) {
+            // Hide all screens
+            document.querySelectorAll('.demo-screen').forEach(screen => {
+                screen.classList.remove('active');
+            });
+            
+            // Remove active class from all buttons
+            document.querySelectorAll('.screen-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            // Show selected screen
+            document.getElementById(screenId).classList.add('active');
+            
+            // Add active class to clicked button
+            event.target.classList.add('active');
+        }
+
+        // Animate progress bars on load
+        window.addEventListener('load', function() {
+            setTimeout(() => {
+                document.querySelectorAll('.progress-fill').forEach(bar => {
+                    const width = bar.style.width;
+                    bar.style.width = '0%';
+                    setTimeout(() => {
+                        bar.style.width = width;
+                    }, 500);
+                });
+            }, 1000);
+        });
+
+        // Add some interactivity to microlearning cards
+        document.querySelectorAll('.microlearning-card').forEach(card => {
+            card.addEventListener('click', function() {
+                const progressBar = this.querySelector('.progress-fill');
+                if (progressBar && progressBar.style.width === '0%') {
+                    progressBar.style.width = '100%';
+                    setTimeout(() => {
+                        this.style.background = '#e8f5e8';
+                        this.innerHTML += '<br><small style="color: #28a745;">✅ Completed!</small>';
+                    }, 1000);
+                }
+            });
+        });
+    </script>
+</body>
+</html>
